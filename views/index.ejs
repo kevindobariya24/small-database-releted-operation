@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my data</title>
+</head>
+<body>
+   <table border="2px">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>password</th>
+    </tr>
+    <form action="/newuser" method="get">
+        <h2><button type="submit">Add User</button></h2>
+    </form>
+    <form action="/All_user" method="get">
+        <h2><button type="submit">All User Count</button></h2>
+    </form>
+   <% for(re of res){%>
+        <tr>
+            <td><%=re.id%></td>
+            <td><%=re.username%></td>
+            <td><%=re.email%></td>
+            <td><%=re.password%></td>
+            <td><form action="/user/<%=re.id%>/edit" method="get">
+                <button>Edit Username</button>
+            </form></td>
+            <td><form action="/user/<%=re.id%>/delete" method="get">
+                <button>Delete</button>
+            </form></td>
+        </tr>
+   <%}%>
+   </table>
+</body>
+</html>
